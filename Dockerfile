@@ -4,7 +4,7 @@ ENV TZ=Asia/Shanghai
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN cd && apt update \
-    && apt install -y tzdata wget liblua5.3-dev lua5.3 unzip zlib1g-dev luajit make gcc libc-dev libcurl4-openssl-dev libcurl4 libevent-dev git libevent-2.1-7 libevent-core-2.1-7 libevent-extra-2.1-7 libevent-openssl-2.1-7 cmake g++ bison libncurses5-dev \
+    && apt install -y libsqlite3-0 libsqlite3-dev tzdata wget liblua5.3-dev lua5.3 unzip zlib1g-dev luajit make gcc libc-dev libcurl4-openssl-dev libcurl4 libevent-dev git libevent-2.1-7 libevent-core-2.1-7 libevent-extra-2.1-7 libevent-openssl-2.1-7 cmake g++ bison libncurses5-dev \
     && rm -rf luarocks-3.7.0.tar.gz && wget http://luarocks.org/releases/luarocks-3.7.0.tar.gz && tar xzf luarocks-3.7.0.tar.gz && cd luarocks-3.7.0 && ./configure && make build && make install && cd \
     && wget https://github.com/MariaDB/server/archive/mariadb-5.5.48.tar.gz && tar xzf mariadb-5.5.48.tar.gz && cd server-mariadb-5.5.48 && cmake . && cd libmysql && make install && cd ../include && make install && cd && rm -rf mariadb-5.5.48.tar.gz server-mariadb-5.5.48 \
     && wget https://www.openssl.org/source/openssl-1.1.1q.tar.gz && tar xzf openssl-1.1.1q.tar.gz && cd openssl-1.1.1q && ./config && make && make install && cd \
