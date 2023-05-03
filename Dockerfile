@@ -14,6 +14,7 @@ RUN cd && apt update \
     && luarocks install lua-protobuf \
     && luarocks install lmd5 \
     && luarocks install lua-iconv \
+    && luarocks install lsqlite3 \
     && cd luarocks-3.7.0 && make uninstall && cd && rm -rf luarocks-3.7.0* \
     && apt-get -y remove g++ bison libncurses5-dev liblua5.3-dev libc-dev zlib1g-dev libcurl4-openssl-dev libevent-dev unzip cmake make gcc binutils libc-dev-bin git \
     && apt-get -y autoremove \
